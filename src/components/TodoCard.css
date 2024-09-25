@@ -1,0 +1,13 @@
+.DONE{
+    background-color: green;
+}
+.IN_PROGRESS{
+    background-color: yellow;
+}
+.OPEN{
+    background-color: red;
+}
+
+button{
+    horiz-align: right;
+}
