@@ -1,13 +1,15 @@
+import {TodoElement, TodoList} from "../types/todoElement";
 import TodoCard from "./TodoCard";
-import {useNavigate} from "react-router-dom"
 
-export default function ShowAll({todoList}) {
-    const navigate = useNavigate();
-
+type ListProps = {
+    todoList: TodoElement[],
+    setter: (newList: TodoList) => void;
+}
+export default function ShowAll(props:ListProps) {
+const cards = props.todoList.map((entry => (<TodoCard key={entry.id} todoElement={entry} setter={props.setter}/>)))
     return (
         <>
-            {todoList.map(entry => (<TodoCard key={entry.id} todoElement={entry}> </TodoCard>
-            ))}
+            {cards}
         </>
     )
 }

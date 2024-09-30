@@ -1,10 +1,15 @@
+import { TodoElement } from "../types/todoElement";
 import TodoCard from "./TodoCard";
-
-export  default  function ShowByStatus({todoList, status}){
-    return (
+type ByStatusProps={
+    todoList:TodoElement[];
+    status:string
+}
+export  default  function ShowByStatus(props: Readonly<ByStatusProps>){
+    const cards = props.todoList.filter(entry => entry.status == props.status)
+        .map(entry => ( <TodoCard key={entry.id} todoElement={entry}/>) )
+    return(
         <>
-            {todoList.filter(entry => entry.status == status)
-                .map(entry => ( <TodoCard key={entry.id} todoElement={entry}> </TodoCard>) )}
+             {cards}
         </>
     )
 }
