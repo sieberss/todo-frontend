@@ -31,8 +31,8 @@ function App() {
             <Route path={"/notstarted"} element={<ShowByStatus todoList={todoList} status={"OPEN"}/>}/>
             <Route path={"/inprogress"} element={<ShowByStatus todoList={todoList} status={"IN_PROGRESS"}/>}/>
             <Route path={"/done"} element={<ShowByStatus todoList={todoList} status={"DONE"}/>}/>
-            <Route path={"/todo/delete/:id"} element={<DeleteTodo setter={setTodoList}/> }/>
-            <Route path={"/todo/edit/:id"} element={<EditTodo setter={setTodoList}/>}/>
+            <Route path={"/delete/:id"} element={<DeleteTodo setter={setTodoList}/> }/>
+            <Route path={"/edit/:id"} element={<EditTodo setter={setTodoList}/>}/>
         </Routes>
     </>
   )

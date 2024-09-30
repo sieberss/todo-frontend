@@ -17,8 +17,8 @@ export default function TodoCard(props:CardProps) {
     return (
         <div className={entry.status}>
             <h2> {entry.description}</h2>
-            <button type="button" onClick={() => navigate("todo/edit/" + entry.id)}> Edit </button>
-            <button type="button" onClick={() => navigate("todo/delete/" + entry.id)}> Delete </button>
+            <button type="button" onClick={() => navigate("/edit/" + entry.id)}> Edit </button>
+            <button type="button" onClick={() => navigate("/delete/" + entry.id)}> Delete </button>
         </div>
         )
 }

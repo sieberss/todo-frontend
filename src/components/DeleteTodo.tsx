@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import { TodoElement, TodoList } from "../types/todoElement";
 //import { ElementManipulationProps } from "../types/propsTypes";
 import axios from "axios";
@@ -11,7 +11,6 @@ type DeleteProps = {
 export default function DeleteTodo (props:DeleteProps) {
 
     const [todoElement, setTodoElement] = useState<TodoElement>()
-
 
     const params = useParams();
     const id = params.id
@@ -28,12 +27,18 @@ export default function DeleteTodo (props:DeleteProps) {
             })
     }
 
+    const navigate= useNavigate()
+
     return todoElement ? (
         <>
             <h2>Do you really want to delete this ToDo?</h2>
             <p>Description: {todoElement.description}</p>
             <p>Status: {todoElement.status}</p>
-            <button onClick={deleteTodoRemote}>OK</button>
+            <button onClick={() => {
+                deleteTodoRemote();
+                navigate('/')}
+            }>
+                OK </button>
         </>
     ) : (<h2>Loading</h2>)
 
